@@ -17,10 +17,16 @@ app.get("/", async (req, res) => {
 
 
     function GetUserIp(req) {
+        // Get the IP from the 'x-forwarded-for' header, if available, or fall back to the remote address
         var ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+
+        // If the 'x-forwarded-for' contains multiple IPs, take the first one (client's IP)
+        if (ip.includes(',')) {
+            ip = ip.split(',')[0].trim();
+        }
+
         return ip;
     }
-
 
     try {
         // var userIp = req.body.userIp
