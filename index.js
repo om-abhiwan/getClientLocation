@@ -1,7 +1,7 @@
 const express = require("express")
 const app = express()
 const axios = require("axios")
-
+const cron = require("node-cron")
 
 const cors = require("cors")
 app.use(cors({ origin: '*' }))
@@ -10,6 +10,10 @@ app.use(cors({ origin: '*' }))
 
 app.use(express.json());
 
+
+cron.schedule("*/03 * * * * *",()=>{
+    console.log("server running")
+})
 
 
 
