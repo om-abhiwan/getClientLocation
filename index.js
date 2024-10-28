@@ -51,7 +51,7 @@ app.get("/", async (req, res) => {
         //     // latitude: body.latitude,
         //     // longitude: body.longitude
         // }
-        console.log("locationData,", locationData);
+        // console.log("locationData,", locationData);
 
         // ip2location.fetch(userIp).then((locationData) => {
         // });
